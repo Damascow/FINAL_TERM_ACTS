@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+public class MethodExample {
+  public static void main(String[] args) {
+    int a, b, result;
+    char ch;
+    Scanner scanner = new Scanner(System.in);
+    
+    System.out.println("Enter 2 numbers:");
+    a = scanner.nextInt();
+    b = scanner.nextInt();
+    
+    System.out.println("Choose an operator: +, -, *, or /");
+    ch = scanner.next().charAt(0);
+
+    switch (ch) {
+      case '+':
+        result = add(a, b);
+        System.out.println("The sum is: " + result);
+        break;
+      case '-':
+        result = sub(a, b);
+        System.out.println("The difference is: " + result);
+        break;
+      case '*':
+        result = mul(a, b);
+        System.out.println("The product is: " + result);
+        break;
+      case '/':
+          result = div(a, b);
+          System.out.println("The quotient is: " + result);
+        } 
+  }
+  public static int add(int a, int b) {
+      return a + b;
+  }
+  public static int sub(int a, int b) {
+      return a - b;
+  }
+  public static int mul(int a, int b) {
+      return a * b;
+  }
+  public static int div(int a, int b) {
+      return a / b;
+  }
+}
+       
