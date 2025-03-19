@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter number of elements: ");
+        int numElements = input.nextInt();
+        Double[] numbers = new Double[numElements];
+
+        for (int i = 0; i < numElements; i++) {
+            System.out.print("Enter number " + (i + 1) + ": ");
+            numbers[i] = input.nextDouble();
+        }
+
+        Double sum = 0.0;
+        Double diff = numbers[0];
+        Double prod = 1.0;
+        Double quo = numbers[0];
+
+        for (int i = 0; i < numElements; i++) {
+            sum += numbers[i];
+            prod *= numbers[i];
+            if (i > 0) {
+                diff -= numbers[i];
+            }
+        }
+
+        for (int i = 1; i < numElements; i++) {
+            if (numbers[i] != 0) {
+                quo /= numbers[i];
+            } else {
+                System.out.println("Error! Division by zero.");
+                quo = null;
+                break;
+            }
+        }
+
+        System.out.println("The sum is: " + sum);
+        System.out.println("The difference is: " + diff);
+        System.out.println("The product is: " + prod);
+        if (quo != null) {
+            System.out.println("The quotient is: " + quo);
+        }
+
+        input.close();
+    }
+}
