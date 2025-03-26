@@ -1,0 +1,42 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Grade {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter name: ");
+        String name = scanner.nextLine();
+
+        int grade = 0;
+        boolean validInput = false;
+
+        while (!validInput) {
+            try {
+                System.out.print("Enter grade: ");
+                grade = scanner.nextInt();
+
+                if (grade < 0 || grade > 100) {
+                    throw new IllegalArgumentException("Incorrect Input.");
+                }
+                validInput = true;
+            } 
+            catch (InputMismatchException e) 
+            {
+                System.out.println("Incorrect input.");
+                scanner.next();
+            } 
+            catch (IllegalArgumentException e) 
+            {
+                System.out.println(e.getMessage());
+            }
+        }
+        if (grade >= 59) 
+        {
+            System.out.println("Hello " + name + "!" + " You passed. :)");
+        } else 
+        {
+            System.out.println("Hello " + name + "," + " You failed. Why? :(");
+        }
+        scanner.close();
+    }
+}
